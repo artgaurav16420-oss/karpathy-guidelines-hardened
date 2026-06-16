@@ -9,6 +9,6 @@
 
 - Match the existing style and tone. See [`EXAMPLES.md`](./EXAMPLES.md) and [`CLAUDE.md`](./CLAUDE.md) for reference.
 - Keep examples realistic — prefer real-world patterns over hypothetical ones
-- If adding a new rule or section, update all synced files (`CLAUDE.md`, `SKILL.md`, `AGENTS.md`, `README.md`, `CHANGELOG.md`, `EXAMPLES.md`)
+- If adding a new rule or section, update all synced files (`CLAUDE.md`, `SKILL.md`, `AGENTS.md`, `README.md`, `CHANGELOG.md`, `EXAMPLES.md`, `skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md`, `skills/karpathy-guidelines/assets/agents-template.md`)
 - Keep `CHANGELOG.md` up to date with each significant change
 - License: CC0-1.0 — all contributions are under this license

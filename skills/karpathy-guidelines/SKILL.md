@@ -16,14 +16,14 @@ Check before acting. If files are missing, ask — do not silently create.
 ### karpathy-guidelines.md
 1. Check if `karpathy-guidelines.md` exists in project root
 2. If missing: ASK user permission → "Allow me to create karpathy-guidelines.md with the v3.7 behavioral guidelines?"
-3. If user approves: read reference copy from `skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md` and write to project root. If reference file not found, read from `~/.agents/skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md`
+3. If user approves: read reference copy from `skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md` and write to project root. If reference file not found, ask user where the skill is installed or skip creation
 4. If user denies: state explicitly that guidelines are not enforced. Proceed without loading. Do NOT silently skip.
 5. If exists: skip
 
 ### AGENTS.md / CLAUDE.md
 1. Check if `AGENTS.md` and/or `CLAUDE.md` exist in project root
 2. If missing: ASK user permission → "Allow me to create AGENTS.md / CLAUDE.md with project context template?"
-3. If user approves: create from template at `skills/karpathy-guidelines/assets/agents-template.md`. If template file not found, read from `~/.agents/skills/karpathy-guidelines/assets/agents-template.md`
+3. If user approves: create from template at `skills/karpathy-guidelines/assets/agents-template.md`. If template file not found, ask user where the skill is installed or skip creation
 4. If exist but missing mandatory reference line: PREPEND the following line only — do NOT modify any existing content:
    ```
    Karpathy Guidelines v3.7 MANDATORY: For all AI operations in this project, you MUST follow karpathy-guidelines.md as the primary behavioral ruleset.

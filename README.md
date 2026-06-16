@@ -419,9 +419,9 @@ The agent did ask clarifying questions (Rule 1) and kept the code concise (Rule 
 
 ---
 
-### 🟢 With `artgaurav16420-oss/karpathy-guidelines-hardened` (this repo, 8 rules)
+### 🟢 With `artgaurav16420-oss/karpathy-guidelines-hardened` (this repo, 10 rules)
 
-> Adds: Security (2.5) · Side Effects & Concurrency (3.5) · Observable Changes (5) · Execution modes · Pre-flight · Confidence annotations · Scope Escalation Protocol
+> Adds: Rule 0 (Trust Boundary) · Rule 2.5 (Security Halt) · Rule 3.5 (Side Effects & Concurrency) · Rule 5 (Observable Changes) · Rule 6 (Design Discipline) · Rule 7 (Non-Developer Overrides) · Execution modes · Pre-flight · Confidence annotations · Scope Escalation Protocol
 
 ```
 Agent response:
@@ -557,7 +557,11 @@ The hardened agent produced zero lines of production code and zero bugs — beca
 ├── CHANGELOG.md                      ← Version history
 └── skills/
     └── karpathy-guidelines/
-        └── SKILL.md                   ← Claude Code reusable skill
+        ├── SKILL.md                   ← Claude Code reusable skill
+        ├── references/
+        │   └── karpathy-guidelines-v3.7.md  ← Ruleset (load-on-demand)
+        └── assets/
+            └── agents-template.md     ← AGENTS.md/CLAUDE.md template
 ```
 
 ---
