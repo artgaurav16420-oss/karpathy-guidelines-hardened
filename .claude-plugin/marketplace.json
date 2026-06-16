@@ -1,0 +1,30 @@
+{
+  "name": "karpathy-guidelines-hardened",
+  "id": "karpathy-guidelines-hardened",
+  "owner": {
+    "name": "artgaurav16420"
+  },
+  "metadata": {
+    "description": "Hardened behavioral guidelines for LLM coding agents: modes, pre-flight checks, surface confusion, simplify, security, touch minimum, side effects, verify before done, observable changes, confidence annotations.",
+"version": "1.3.0"
+  },
+  "plugins": [
+    {
+      "name": "karpathy-guidelines-hardened",
+      "source": "./",
+      "description": "Hardened Karpathy guidelines — 8 rules + prompt injection guard, security, concurrency, confidence annotations, and anti-pattern catalog for LLM coding agents.",
+      "version": "1.2.0",
+      "author": {
+        "name": "artgaurav16420"
+      },
+      "keywords": [
+        "guidelines",
+        "best-practices",
+        "coding",
+        "karpathy",
+        "hardened"
+      ],
+      "category": "workflow"
+    }
+  ]
+}
