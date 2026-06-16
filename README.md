@@ -72,8 +72,6 @@ curl -o ~/.claude/skills/karpathy-guidelines/SKILL.md \
 
 > **Integrity:** After downloading, verify the file hash against the latest release checksums on the [releases page](https://github.com/artgaurav16420-oss/karpathy-guidelines-hardened/releases). Piping `curl` directly to shell is not recommended for security-critical setups.
 
-For **Cursor**: copy [`.cursor/rules/karpathy-guidelines.mdc`](.cursor/rules/karpathy-guidelines.mdc) into your project's `.cursor/rules/` directory. See [CURSOR.md](./CURSOR.md).
-
 ---
 
 ## The 10 Rules
@@ -557,12 +555,9 @@ The hardened agent produced zero lines of production code and zero bugs — beca
 ├── EXAMPLES.md                        ← 15+ before/after comparisons for every rule
 ├── CURSOR.md                          ← Cursor IDE setup guide
 ├── CHANGELOG.md                      ← Version history
-├── skills/
-│   └── karpathy-guidelines/
-│       └── SKILL.md                   ← Claude Code reusable skill
-└── .cursor/
-    └── rules/
-        └── karpathy-guidelines.mdc    ← Cursor rule (alwaysApply: true)
+└── skills/
+    └── karpathy-guidelines/
+        └── SKILL.md                   ← Claude Code reusable skill
 ```
 
 ---
@@ -588,7 +583,7 @@ These guidelines bias toward **caution over speed**. For trivial tasks — typos
 
 ## Contributing
 
-Contributions welcome. Match existing style and tone. When adding a rule or section, keep all synced files updated: `CLAUDE.md`, `SKILL.md`, `.cursor/rules/*.mdc`, `EXAMPLES.md`.
+Contributions welcome. Match existing style and tone. When adding a rule or section, keep all synced files updated: `CLAUDE.md`, `SKILL.md`, `AGENTS.md`, `CHANGELOG.md`, `EXAMPLES.md`.
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md).
 

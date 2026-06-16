@@ -13,7 +13,6 @@ When editing guidelines, update ALL synced files:
 | `karpathy-guidelines.md` | Source of truth — machine-parseable. Edit first |
 | `CLAUDE.md` | Drop-in for any project. Must start with mandatory reference line + project context template |
 | `skills/karpathy-guidelines/SKILL.md` | Claude Code reusable skill |
-| `.cursor/rules/karpathy-guidelines.mdc` | Cursor rule (`alwaysApply: true`) |
 | `EXAMPLES.md` | Before/after comparisons for every rule |
 | `README.md` | Rule descriptions, version badges, repo layout |
 | `CHANGELOG.md` | Keep a Changelog format. One entry per significant change |
