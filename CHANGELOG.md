@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- `skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md`: extracted ruleset for load-on-demand (progressive disclosure)
+- `skills/karpathy-guidelines/assets/agents-template.md`: extracted AGENTS.md/CLAUDE.md template
+- `compatibility` field to SKILL.md frontmatter
+- RULE_0 trust tension note documenting AGENTS.md/CLAUDE.md trust paradox
+- Fallback behavior when user denies file creation in Step 1
 - Upgraded from v3.6 to v3.7 behavioral guidelines (394 lines, +109)
 - Rule 6 (Design Discipline): ROI_CHECK, BUGFIX_PRIORITY, NEW_PERSISTENCE_RULE, GREENFIELD_MVP, DUPLICATION_DECISION_RULE, FEATURE_DESIGN_RULE
 - Rule 7 (Non-Developer Overrides): ND1-ND6 covering default USER_VERIFY, external state approval, verification requirement, explain-before-risk, production guard, destructive ops guard
@@ -19,6 +24,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - 6 new anti-patterns across README.md and EXAMPLES.md for Rule 6 and Rule 7
 
 ### Changed
+- SKILL.md: extracted inline v3.7 ruleset (~300 lines) to `references/karpathy-guidelines-v3.7.md` (progressive disclosure)
+- SKILL.md: extracted AGENTS.md/CLAUDE.md template to `assets/agents-template.md`
+- SKILL.md: reordered steps (check existence → create → load) to fix race condition
+- SKILL.md: split Step 2 into file-creation (Step 1) and behavioral enforcement (Step 2)
+- SKILL.md: fixed mislabeled "RULE_2.5 security violation" → "behavioral violation; halt and report"
+- SKILL.md: body reduced 465→67 lines (86% context savings on trigger)
+- AGENTS.md sync rule: SKILL.md no longer requires embedded full ruleset
 - CLAUDE.md: replaced redirect template with full self-contained v3.7 ruleset
 - SKILL.md, .mdc: v3.6 → v3.7 across all content
 - README.md: "8 rules" → "10 rules"; updated ASCII box, conflict resolution, what's-new table, anti-pattern catalog

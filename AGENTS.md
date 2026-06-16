@@ -17,7 +17,7 @@ When editing guidelines, update ALL synced files:
 | `README.md` | Rule descriptions, version badges, repo layout |
 | `CHANGELOG.md` | Keep a Changelog format. One entry per significant change |
 
-Sync = content parity (not file copy). CLAUDE.md, SKILL.md, and .mdc must contain the full karpathy-guidelines.md ruleset. README and EXAMPLES summarize.
+Sync = content parity (not file copy). CLAUDE.md and .mdc must contain the full karpathy-guidelines.md ruleset. SKILL.md references the ruleset via `references/karpathy-guidelines-v3.7.md` (load-on-demand — progressive disclosure). README and EXAMPLES summarize.
 
 ## Conventions
 
