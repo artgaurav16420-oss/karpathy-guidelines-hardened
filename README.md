@@ -553,7 +553,6 @@ The hardened agent produced zero lines of production code and zero bugs — beca
 .
 ├── CLAUDE.md                          ← Drop into any project. Works immediately.
 ├── EXAMPLES.md                        ← 15+ before/after comparisons for every rule
-├── CURSOR.md                          ← Cursor IDE setup guide
 ├── CHANGELOG.md                      ← Version history
 └── skills/
     └── karpathy-guidelines/
