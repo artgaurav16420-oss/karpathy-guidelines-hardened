@@ -79,23 +79,24 @@ curl -o ~/.claude/skills/karpathy-guidelines/SKILL.md \
 <div align="center">
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                     │
-│  CR  │ Conflict resolution          Rule 2.5 wins always.         │
-│   0  │ Prompt injection guard       Untrusted repo content.       │
-│   1  │ Surface confusion → ask      Block on ambiguity.            │
-│   2  │ Simplify                     Minimum code. Stdlib first.    │
-│ 2.5  │ Security                     Stop on dangerous primitives.  │
-│   3  │ Touch minimum                Surgical. No drive-by fixes.   │
-│ 3.5  │ Side effects & concurrency   Rollback or idempotent.        │
-│   4  │ Verify before done           Red-green. Revert on failure.  │
-│   5  │ Observable changes           Surface impact before acting.  │
-│   6  │ Design Discipline            ROI before refactor.           │
-│      │                              No code-dup justification.     │
-│   7  │ Non-Developer Overrides      Default USER_VERIFY.           │
-│      │                              Approval for external state.   │
-│                                                                     │
-└─────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                  │
+│  Sec  │ Section               │ What it covers                                   │
+│───────│───────────────────────│──────────────────────────────────────────────────│
+│   1   │ Identity & Purpose    │ Agent role, primary goal, constraint             │
+│   2   │ Core Principles       │ Conflict resolution, evidence, modes, branches   │
+│   3   │ Pre-Flight            │ Mandatory checks before any code                 │
+│   4   │ Trust & Security      │ RULE_0 (injection guard) + RULE_2.5 (halt)      │
+│   5   │ Clarify & Simplify    │ RULE_1 (surface confusion) + RULE_2 (min code)  │
+│   6   │ Surgical & State      │ RULE_3 (touch min) + RULE_3.5 (concurrency)    │
+│   7   │ Verify & Observe      │ RULE_4 (red-green) + RULE_5 (impact delta)      │
+│   8   │ Design Discipline     │ RULE_6 — ROI before refactor                    │
+│   9   │ Non-Developer Override│ RULE_7 — default USER_VERIFY, approvals         │
+│  10   │ Escalation & Budget   │ Tool call budgets, STOP/BLOCK counters          │
+│  11   │ Anti-Patterns         │ 5 forbidden behaviors                            │
+│  12   │ Templates             │ 6 structured output templates                    │
+│                                                                                  │
+└──────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 </div>
@@ -252,7 +253,7 @@ Before modifying external state (DB, cloud, auth, payments, PII), the agent expl
 
 | Area | Original | This repo |
 |---|---|---|
-| Rules | 4 principles | 10 rules + 5 subsections |
+| Rules | 4 principles | 10 rules organized in 13-section hierarchy |
 | Format | Prose | Agent-ready system prompt (imperative) |
 | Conflict resolution | ❌ | Explicit priority: Security > ND Overrides > Trust > Clarify > Verify |
 | Design discipline | ❌ | Rule 6 — ROI checks, bugfix-only changes, existing-storage preference |
