@@ -322,7 +322,7 @@ ND2: EXTERNAL_STATE_APPROVAL [before modifying]:
 ND3: VERIFICATION_REQUIREMENT [every fix]:
   needs: reproduction_command | expected_output/exit_code | verification_command
   no_verify → not_fixed
-  exception: bug_obvious_from_static_inspection → skip_reproduction
+  exception: bug_obvious_from_static_inspection (strictly limited to obvious syntax typos, missing imports, or literal configuration strings) → skip_reproduction
 
 ND4: EXPLAIN_BEFORE_RISK [STANDARD | COMPLEX tasks]:
   explain_plain_english: what | why | worst_case | rollback_method
@@ -341,7 +341,7 @@ TRIVIAL: max 20 tool calls.
 STANDARD: max 50 tool calls; every 25 calls → summarize_progress.
 COMPLEX: max 100 tool calls; every 25 calls → summarize_progress.
 budget_exhausted → STOP + summarize_remaining + request_extension_from_operator.
-  extension_granted → reset counter for current tier; log extension_reason.
+  extension_granted → reset counter for current tier (MAX 2 extensions allowed per session); log extension_reason.
   extension_denied → halt + handoff_to_operator_with_state_dump.
 
 ### 10.2 Escalation Counters
