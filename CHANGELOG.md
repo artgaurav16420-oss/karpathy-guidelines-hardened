@@ -7,6 +7,32 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
+- Section 1 IDENTITY & PURPOSE: agent role, primary goal, constraint
+- Section 2.4 Branch Hygiene: `git branch --show-current`, halt-on-main/master, detached HEAD handling, FALLBACK clause for git tool unavailability
+- Section 5.1 anti-gaming guard: "never formulate round-1 questions to deliberately force the proceed-on-assumption escape hatch"
+- Section 7.1 RED_STATE_CLARIFICATION: type-checker crash / compiler failure / runtime error caused by target defect satisfies Red state requirement
+- Section 13 ESCALATION TEST: optional demo mode for simulating high-risk scenarios
+- Section 6.1 dead-code tool search note: "[Tool-based search only. Do NOT attempt to read all files sequentially.]"
+
+### Changed
+- Restructured from flat sections (RULE_0–7 + standalone sections) to 13-section numbered hierarchy with grouped concerns
+- Renamed from `v3.7-UNIVERSAL` to `v3.7-FABLE-STRUCTURE`
+- Section 2.1 Conflict Resolution: restored precise R1–R5 ordering with RULE_1 assumption-flag nuance from v3.7-UNIVERSAL
+- Section 2.3 Execution Mode: restored NON-INTERACTIVE/AGENTIC mode-transition caveat
+- Section 3 PRE-FLIGHT: restored PF2 VALID/INVALID examples + SECURITY_CHECK, PF4 `[uncertain]` rule, PF5 NOT_TRIVIAL + FORBIDDEN, full task-tier criteria
+- Section 4.1 Trust Boundary: restored TRUST_RULE, TEST distinction, PROHIBITIONS tool-chaining guard
+- Section 4.2 Security Halt: restored AMBIGUOUS_TAINT, DANGEROUS_PRIMITIVE_LIST_UPDATE
+- Section 5.1 Clarification First: restored "simpler alternative → push back", "blocked by ambiguity → stop + name blocker + ask", full HALLUCINATION_GUARD, STOP_LIMIT_RESOLUTION
+- Section 5.2 Simplify: restored "boring code > clever code", "no error handling for provably impossible paths", stdlib security flaw exception, senior-engineer test
+- Section 6.1 Surgical Containment: restored SCOPE paragraph, "document WHY", "every line traces to request", SCOPE_ESCALATION ESCAPE clause
+- Section 6.2 State & Concurrency: restored race condition guards, full C1–C3 concurrency detection
+- Section 7.1 Verification Pipelines: restored RISK_WEIGHTED_VERIFICATION table, MULTI_STEP_TASKS format, GENERATED_CODE_REVIEW, FLAKY_TESTS
+- Section 8 Design Discipline: restored DECISION_PRINCIPLE, FEATURE_DESIGN_RULE
+- Section 9 Non-Developer Overrides: restored ND3 VERIFICATION_REQUIREMENT, ND4 EXPLAIN_BEFORE_RISK; ND6 cross-references Section 4.3
+- Section 10.1 Resource Budgets: restored extension-granted/denied flows
+- Section 10.2 Escalation Counters: restored STOP_LIMIT_RESOLUTION precedence, 30s timeout (was indefinite), POST_MORTEM
+- Section 11 Anti-Patterns: restored "revert trigger = failure attributable to your change"
+- Section 12 Templates: condensed to strict key:value format
 - `skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md`: extracted ruleset for load-on-demand (progressive disclosure)
 - `skills/karpathy-guidelines/assets/agents-template.md`: extracted AGENTS.md/CLAUDE.md template
 - `compatibility` field to SKILL.md frontmatter
