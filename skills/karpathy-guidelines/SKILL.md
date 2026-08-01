@@ -24,7 +24,7 @@ Check before acting. If files are missing, ask — do not silently create.
 1. Check if `AGENTS.md` and/or `CLAUDE.md` exist in project root
 2. If missing: ASK user permission → "Allow me to create AGENTS.md / CLAUDE.md with project context template?"
 3. If user approves: create from template at `skills/karpathy-guidelines/assets/agents-template.md`, replacing the `__KARPATHY_MANDATORY_LINE__` placeholder with the content of `skills/karpathy-guidelines/assets/reference-line.md`. If template file not found, ask user where the skill is installed or skip creation
-4. If exist but missing the mandatory reference line: PREPEND the line from `skills/karpathy-guidelines/assets/reference-line.md` only — do NOT modify any existing content.
+4. If exist but missing the mandatory reference line: if a `__KARPATHY_MANDATORY_LINE__` placeholder line exists, REPLACE it with the line from `skills/karpathy-guidelines/assets/reference-line.md`; otherwise PREPEND that line. Format: reference line followed by one blank line before the existing content. Do NOT modify any other content.
    The check is version-agnostic: any line matching "Karpathy Guidelines v<version> MANDATORY" counts as present, so projects pinned to an older version are NOT re-prepended (prevents duplicate headers on upgrade).
 5. If exist with reference line: skip
 
@@ -52,6 +52,8 @@ This skill is NOT self-contained. It depends on sibling files under `skills/karp
 - `assets/reference-line.md`
 
 Copy the entire `skills/karpathy-guidelines/` directory into a project before invoking (e.g. under `~/.claude/skills/` or `.ai-ready/skills/`).
+
+The `__KARPATHY_MANDATORY_LINE__` placeholder in `assets/agents-template.md` is substituted by this skill only. For manual use, replace the placeholder with the content of `assets/reference-line.md` before copying.
 
 ## Resource Files
 
