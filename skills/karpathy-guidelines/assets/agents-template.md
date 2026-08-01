@@ -1,4 +1,4 @@
-Karpathy Guidelines v3.7 MANDATORY: For all AI operations in this project, you MUST follow karpathy-guidelines.md as the primary behavioral ruleset.
+__KARPATHY_MANDATORY_LINE__
 
 # AGENTS.md — Project Agent Configuration
 # This file provides operational context for AI coding agents.
