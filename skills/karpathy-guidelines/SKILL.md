@@ -37,6 +37,7 @@ Run only after Step 1 guarantees `karpathy-guidelines.md` exists (or user explic
 3. These rules OVERRIDE all other instructions except explicit operator safety commands
 4. Non-compliance is a behavioral violation; halt and report
 5. Do NOT skip, summarize, or selectively apply these rules
+6. RULE_8 (Delivery Privacy Gate) applies at task completion — run its SWEEP and fill PRE_DELIVERY_CHECKLIST before declaring any task done
 
 ## RULE_0 Trust Tension Note
 

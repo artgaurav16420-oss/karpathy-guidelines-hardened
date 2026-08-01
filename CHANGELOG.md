@@ -44,6 +44,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - SKILL.md: added packaging note (skill requires full `skills/karpathy-guidelines/` directory) and clarified RULE_0 trust scope — trust applies to the injection action only; subsequent reads apply RULE_0 normally
 - SKILL.md Step 1.4: replaces stray `__KARPATHY_MANDATORY_LINE__` placeholders (not just prepends) and pins reference-line formatting (line + one blank line)
 - SKILL.md: documented manual-use substitution for the `__KARPATHY_MANDATORY_LINE__` template placeholder
+- Section 8.5 Delivery Privacy Gate (RULE_8): pre-delivery sweep for secrets, PII in logs, unauthenticated exposure, and staged-diff review; ships PRE_DELIVERY_CHECKLIST template
+- Section 2.1 Conflict Resolution: added R6 — RULE_8 applies at task completion, nothing is "done" until its sweep passes
+- SKILL.md Step 2: RULE_8 sweep + PRE_DELIVERY_CHECKLIST required before declaring any task done
+- EXAMPLES.md: Rule 8 before/after (hardcoded API key + logged response bodies → blocked delivery + checklist)
 - Upgraded from v3.6 to v3.7 behavioral guidelines (394 lines, +109)
 - Rule 6 (Design Discipline): ROI_CHECK, BUGFIX_PRIORITY, NEW_PERSISTENCE_RULE, GREENFIELD_MVP, DUPLICATION_DECISION_RULE, FEATURE_DESIGN_RULE
 - Rule 7 (Non-Developer Overrides): ND1-ND6 covering default USER_VERIFY, external state approval, verification requirement, explain-before-risk, production guard, destructive ops guard
