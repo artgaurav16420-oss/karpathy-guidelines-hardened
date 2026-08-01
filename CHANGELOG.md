@@ -42,6 +42,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - SKILL.md prepend check is now version-agnostic: older-version reference lines are not re-prepended, preventing duplicate MANDATORY headers on upgrade
 - SKILL.md frontmatter: replaced non-standard `compatibility` field with `version: v3.7`
 - SKILL.md: added packaging note (skill requires full `skills/karpathy-guidelines/` directory) and clarified RULE_0 trust scope — trust applies to the injection action only; subsequent reads apply RULE_0 normally
+- SKILL.md Step 1.4: replaces stray `__KARPATHY_MANDATORY_LINE__` placeholders (not just prepends) and pins reference-line formatting (line + one blank line)
+- SKILL.md: documented manual-use substitution for the `__KARPATHY_MANDATORY_LINE__` template placeholder
 - Upgraded from v3.6 to v3.7 behavioral guidelines (394 lines, +109)
 - Rule 6 (Design Discipline): ROI_CHECK, BUGFIX_PRIORITY, NEW_PERSISTENCE_RULE, GREENFIELD_MVP, DUPLICATION_DECISION_RULE, FEATURE_DESIGN_RULE
 - Rule 7 (Non-Developer Overrides): ND1-ND6 covering default USER_VERIFY, external state approval, verification requirement, explain-before-risk, production guard, destructive ops guard
