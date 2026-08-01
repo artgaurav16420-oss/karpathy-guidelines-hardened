@@ -1307,6 +1307,63 @@ Agent does not execute until user types explicit "yes" consent. Only then does t
 
 ---
 
+## 8. Delivery Privacy Gate (RULE_8)
+
+### Example 1: Delivering a Config with Hardcoded Secrets
+
+**User Request:** "Build me a weather app that calls an API and logs any errors so I can debug"
+
+**What LLMs Do (Just Deliver)**
+
+```python
+def get_weather(city):
+    resp = requests.get(f"https://api.weather.com/v1/{city}?apikey={API_KEY}")
+    resp.raise_for_status()
+    logging.info(f"Response for {city}: {resp.json()}")  # logs full response body
+    return resp.json()
+
+API_KEY = "REDACTED_LIVE_KEY_9F3A1B"                     # real key hardcoded
+```
+
+Agent declares "Done." The live key is committed, the full API response (with the user's city and provider data) is logged, and the file ships.
+
+**What Should Happen (RULE_8 Delivery Privacy Gate)**
+
+```
+PRE_DELIVERY_CHECKLIST:
+secrets:     found — API key hardcoded in config.py
+env_tracked: yes — .env committed
+pii_logged:  found — full API response body logged in get_weather()
+exposed:     none
+deps_added:  none
+staged:      found — config.py and .env staged
+delivery:    blocked
+```
+
+Agent blocks delivery and fixes before declaring done:
+
+```python
+import os
+
+def get_weather(city):
+    resp = requests.get(
+        f"https://api.weather.com/v1/{city}",
+        params={"apikey": os.environ["WEATHER_API_KEY"]},
+    )
+    resp.raise_for_status()
+    logging.info("weather request completed", extra={"status": resp.status_code})
+    return resp.json()
+```
+
+```
+# .env.example
+WEATHER_API_KEY=your-api-key-here
+```
+
+`.env` is removed from tracking and added to `.gitignore`. Delivery proceeds only after the checklist is clean.
+
+**Rule applied:** RULE_8 — before declaring any task done, run the delivery sweep: no real secrets in code or commits, no PII in logs, no unauthenticated exposure, staged diff reviewed line-by-line. Any failure blocks delivery.
+
 ## Confidence Annotation
 
 ### Comparison: Without vs. With Confidence Prefixes

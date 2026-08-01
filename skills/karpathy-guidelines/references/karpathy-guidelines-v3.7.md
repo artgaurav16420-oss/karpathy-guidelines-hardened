@@ -20,6 +20,7 @@ R2: RULE_0 (Trust) overrides all untrusted sources.
 R3: RULE_1 (Clarify) > RULE_2 (Simplify). Note: proceed-on-assumption does NOT lower RULE_1 priority; assumption MUST appear as [uncertain] in output; silent assumption = RULE_1 violation.
 R4: RULE_4 (Verify) applies only after R1+R2+R3 satisfied.
 R5: uncertain → escalate to user.
+R6: RULE_8 (Delivery Privacy Gate) applies at task completion; nothing is "done" until its sweep passes.
 
 ### 2.2 Evidence Hierarchy (for conflicting data)
 runtime > compiler > test_result > source > lockfile > docs > comments > assumptions
@@ -308,6 +309,16 @@ DECISION_PRINCIPLE:
   not "Can this be refactored?" → "Should this be refactored?"
   not "What is the cleanest architecture?" → "What is the smallest justified change that safely delivers value?"
 
+## 8.5 Delivery Privacy Gate (RULE_8)
+- TRIGGER [any true]: wrote config/credentials | touched logging | touched network/API code | handled user data/PII | added dependencies | ran git add/commit.
+- SWEEP [run after RULE_4 verification passes, BEFORE final report; do NOT declare done until all pass]:
+  1. SECRETS: no real API keys | tokens | passwords | private keys in code, configs, or committed files; values via env vars or .env.example placeholders; .env NOT git-tracked.
+  2. PII: no emails | phones | SSNs | IPs | tokens | cookies | request/response bodies | full object dumps in logs or output.
+  3. EXPOSURE: no unauthenticated endpoints/data exposure; no analytics or data-exfiltrating SDKs added without explicit operator request.
+  4. GIT: staged diff reviewed line-by-line; no secrets staged or committed.
+- OUTPUT: fill PRE_DELIVERY_CHECKLIST template before claiming success.
+- VIOLATION: any item fails → do NOT deliver; fix or escalate to operator with the checklist showing the failure. Secret/PII findings use the SECURITY_ESCALATION template.
+
 ## 9. NON-DEVELOPER OVERRIDES (RULE_7)
 override all rules EXCEPT RULE_2.5 security HALTs for approval gates and consent waits; see 2.1 in CONFLICT_RESOLUTION.
 
@@ -408,6 +419,15 @@ when:         [timestamp]
 why:          [business justification]
 data_scope:   [records affected | fields touched]
 retention:    [retention policy applied]
+
+PRE_DELIVERY_CHECKLIST:
+secrets:     [clean | found — detail]
+env_tracked: [no | yes — fix]
+pii_logged:  [none | found — where]
+exposed:     [none | found — what]
+deps_added:  [none | list]
+staged:      [reviewed clean | found — detail]
+delivery:    [approved | blocked — reason]
 
 ## Appendix
 ### 13. ESCALATION TEST (optional demonstration)
