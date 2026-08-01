@@ -64,10 +64,17 @@ curl https://raw.githubusercontent.com/artgaurav16420-oss/karpathy-guidelines-ha
 ```
 
 ```bash
-# As a reusable Claude Code skill
-mkdir -p ~/.claude/skills/karpathy-guidelines
+# As a reusable Claude Code skill (the skill requires all four files below)
+mkdir -p ~/.claude/skills/karpathy-guidelines/references \
+         ~/.claude/skills/karpathy-guidelines/assets
 curl -o ~/.claude/skills/karpathy-guidelines/SKILL.md \
   https://raw.githubusercontent.com/artgaurav16420-oss/karpathy-guidelines-hardened/main/skills/karpathy-guidelines/SKILL.md
+curl -o ~/.claude/skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md \
+  https://raw.githubusercontent.com/artgaurav16420-oss/karpathy-guidelines-hardened/main/skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md
+curl -o ~/.claude/skills/karpathy-guidelines/assets/agents-template.md \
+  https://raw.githubusercontent.com/artgaurav16420-oss/karpathy-guidelines-hardened/main/skills/karpathy-guidelines/assets/agents-template.md
+curl -o ~/.claude/skills/karpathy-guidelines/assets/reference-line.md \
+  https://raw.githubusercontent.com/artgaurav16420-oss/karpathy-guidelines-hardened/main/skills/karpathy-guidelines/assets/reference-line.md
 ```
 
 > **Integrity:** After downloading, verify the file hash against the latest release checksums on the [releases page](https://github.com/artgaurav16420-oss/karpathy-guidelines-hardened/releases). Piping `curl` directly to shell is not recommended for security-critical setups.
@@ -561,7 +568,8 @@ The hardened agent produced zero lines of production code and zero bugs — beca
         ├── references/
         │   └── karpathy-guidelines-v3.7.md  ← Ruleset (load-on-demand)
         └── assets/
-            └── agents-template.md     ← AGENTS.md/CLAUDE.md template
+            ├── agents-template.md     ← AGENTS.md/CLAUDE.md template
+            └── reference-line.md      ← MANDATORY reference line (single source)
 ```
 
 ---

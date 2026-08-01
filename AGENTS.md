@@ -17,6 +17,7 @@ Docs-only (no code, no build, no tests). No CI, no task runner, no lint/typechec
 | `skills/karpathy-guidelines/SKILL.md` | Claude Code reusable skill | Progressive disclosure — references ruleset via `references/karpathy-guidelines-v3.7.md` |
 | `skills/karpathy-guidelines/references/karpathy-guidelines-v3.7.md` | Load-on-demand ruleset | Full content parity from `karpathy-guidelines.md` |
 | `skills/karpathy-guidelines/assets/agents-template.md` | AGENTS.md/CLAUDE.md template for downstream projects | Stays generic (template), not repo-specific |
+| `skills/karpathy-guidelines/assets/reference-line.md` | Canonical MANDATORY reference line | Single source — SKILL.md prepend logic and `agents-template.md` placeholder resolve to it |
 | `EXAMPLES.md` | Before/after comparisons | Rule descriptions |
 | `README.md` | Human-readable docs, version badges, layout | Summaries only |
 | `CHANGELOG.md` | Keep a Changelog format | One entry per significant change |
