@@ -17,11 +17,11 @@ import subprocess
 
 def process_csv(filepath):
     # Simplify: just use a shell command to parse CSV
-    result = subprocess.check_output(f"csvtool col 1 {filepath}", shell=True)
+    result = subprocess.check_output(["csvtool", "col", "1", filepath], shell=False)
     return result.decode()
 ```
 
-Agent prioritizes Rule 2 (Simplify) over Rule 2.5 (Security). The shell command with user-provided `filepath` is a command injection vector.
+Agent prioritizes Rule 2 (Simplify) over Rule 2.5 (Security). Even with `shell=False`, the user-provided `filepath` reaches `subprocess`, which is a security escalation vector.
 
 **✅ What Should Happen (Conflict Resolution Applied)**
 
@@ -32,10 +32,10 @@ Conflict detected:
 
 Resolution: Rule 2.5 wins always. Stop and escalate.
 
-[SECURITY] User input reaching subprocess with shell=True.
-User input path: filepath → f-string → subprocess.check_output()
+[SECURITY] User input reaching subprocess.
+User input path: filepath → list → subprocess.check_output()
 Recommended safe alternative: Use Python's csv module (stdlib)
-Risk: Command injection via crafted filename
+Risk: Argument injection via crafted filename or unauthorized file access
 Decision required: proceed with safe alternative / redesign / abandon?
 ```
 
