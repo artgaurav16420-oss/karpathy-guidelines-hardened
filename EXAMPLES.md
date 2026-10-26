@@ -1307,6 +1307,36 @@ Agent does not execute until user types explicit "yes" consent. Only then does t
 
 ---
 
+### Example 3: Overly Complex Regular Expression
+
+**User Request:** "Extract URLs from this text."
+
+**❌ What LLMs Do (Overly Complex Regex)**
+
+```python
+import re
+
+def extract_urls(text):
+    # Overly complex regex when simple string find might work
+    pattern = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+    return re.findall(pattern, text)
+```
+
+**✅ What Should Happen (Simple Regex)**
+
+```python
+import re
+
+def extract_urls(text):
+    # Simpler, cleaner regex
+    pattern = r'https?://\S+'
+    return re.findall(pattern, text)
+```
+
+**Rule applied:** Simplify — use the simplest solution that works. Complex regexes are harder to maintain and read.
+
+---
+
 ## 8. Delivery Privacy Gate (RULE_8)
 
 ### Example 1: Delivering a Config with Hardcoded Secrets
