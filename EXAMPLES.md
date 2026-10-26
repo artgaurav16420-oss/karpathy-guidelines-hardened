@@ -901,9 +901,9 @@ def test_sort_with_duplicate_scores():
     
     # The bug: order is non-deterministic for duplicates
     # Run this test multiple times, it should be consistent
-    assert result[0]['score'] == 100
-    assert result[1]['score'] == 100
-    assert result[2]['score'] == 90
+    assert result[0]['name'] == 'Alice'
+    assert result[1]['name'] == 'Bob'
+    assert result[2]['name'] == 'Charlie'
 
 # Verify: Run test 10 times → fails with inconsistent ordering
 
